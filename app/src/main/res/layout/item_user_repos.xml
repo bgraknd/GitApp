@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewUserRepoAvatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoRepoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintEnd_toStartOf="@+id/textViewUserRepoLanguage"
+            app:layout_constraintStart_toEndOf="@+id/imageViewUserRepoAvatar"
+            app:layout_constraintTop_toTopOf="@+id/imageViewUserRepoAvatar"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="TextView"
+            app:layout_constraintStart_toStartOf="@+id/textViewUserRepoRepoName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUserRepoRepoName" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_mini"
+            android:layout_marginEnd="16dp"
+            tools:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textViewUserRepoRepoName" />
+
+        <ImageView
+            android:id="@+id/imageViewUserRepoStarred"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewUserRepoDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUserRepoDescription"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoStarred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewUserRepoStarred"
+            app:layout_constraintStart_toEndOf="@+id/imageViewUserRepoStarred"
+            app:layout_constraintTop_toTopOf="@+id/imageViewUserRepoStarred"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageViewUserRepoForked"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUserRepoStarred"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserRepoStarred"
+            app:layout_constraintTop_toTopOf="@+id/textViewUserRepoStarred"
+            app:srcCompat="@drawable/ic_repo_forked" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoForked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewUserRepoForked"
+            app:layout_constraintStart_toEndOf="@+id/imageViewUserRepoForked"
+            app:layout_constraintTop_toTopOf="@+id/imageViewUserRepoForked"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageViewUserRepoUserName"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewUserRepoForked"
+            app:layout_constraintStart_toEndOf="@+id/textViewUserRepoForked"
+            app:layout_constraintTop_toTopOf="@+id/textViewUserRepoForked"
+            app:srcCompat="@drawable/ic_person" />
+
+        <TextView
+            android:id="@+id/textViewUserRepoUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewUserRepoUserName"
+            tools:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/imageViewUserRepoUserName"
+            app:layout_constraintTop_toTopOf="@+id/imageViewUserRepoUserName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

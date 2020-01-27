@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/searchPageFragment">
+
+    <fragment
+        android:id="@+id/searchPageFragment"
+        android:name="com.bugrakandemir.gitappremake.ui.searchpage.SearchPageFragment"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page">
+
+        <action
+            android:id="@+id/action_searchPageFragment_to_repoDetailsFragment"
+            app:destination="@id/repoDetailsFragment" />
+        <action
+            android:id="@+id/action_searchPageFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/repoDetailsFragment"
+        android:name="com.bugrakandemir.gitappremake.ui.repodetails.RepoDetailsFragment"
+        android:label="fragment_repo_details"
+        tools:layout="@layout/fragment_repo_details">
+
+        <argument
+            android:name="item"
+            app:argType="com.bugrakandemir.gitappremake.model.Item" />
+        <action
+            android:id="@+id/action_repoDetailsFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.bugrakandemir.gitappremake.ui.userinfo.UserDetailsFragment"
+        android:label="fragment_user_details"
+        tools:layout="@layout/fragment_user_details">
+        <argument
+            android:name="login"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>

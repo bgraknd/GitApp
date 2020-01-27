@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewSearchAvatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textViewSearchRepoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="@dimen/text_normal"
+            app:layout_constraintEnd_toStartOf="@+id/textViewSearchLanguage"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSearchAvatar"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSearchAvatar"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewSearchDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="@dimen/text_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewSearchRepoName"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSearchRepoName"
+            tools:text="TextView" />
+
+        <TextView
+            android:id="@+id/textViewSearchLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintTop_toTopOf="@+id/textViewSearchRepoName"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageViewSearchStarred"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textViewSearchDescription"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSearchDescription"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/textViewSearchStarred"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewSearchStarred"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSearchStarred"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSearchStarred"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageViewSearchForked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSearchStarred"
+            app:layout_constraintStart_toEndOf="@+id/textViewSearchStarred"
+            app:layout_constraintTop_toTopOf="@+id/textViewSearchStarred"
+            app:srcCompat="@drawable/ic_repo_forked" />
+
+        <TextView
+            android:id="@+id/textViewSearchForked"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewSearchForked"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSearchForked"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSearchForked"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageViewSearchUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSearchForked"
+            app:layout_constraintStart_toEndOf="@+id/textViewSearchForked"
+            app:layout_constraintTop_toTopOf="@+id/textViewSearchForked"
+            app:srcCompat="@drawable/ic_person" />
+
+        <TextView
+            android:id="@+id/textViewSearchUserName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/text_mini"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewSearchUserName"
+            app:layout_constraintStart_toEndOf="@+id/imageViewSearchUserName"
+            app:layout_constraintTop_toTopOf="@+id/imageViewSearchUserName"
+            tools:text="TextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

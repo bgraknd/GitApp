@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/margin_16"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewRepoDetailsAvatar"
+                android:layout_width="@dimen/avatar_size"
+                android:layout_height="@dimen/avatar_size"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsLanguage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsName"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageViewRepoDetailsAvatar"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsName" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsDescription"
+                tools:text="TextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsFullName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintTop_toTopOf="@+id/textView9"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsBranch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/default_branch"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/full_name"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:textStyle="bold"
+                tools:text="TextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsWatchers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold
+"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintStart_toEndOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintEnd_toStartOf="@+id/textViewRepoDetailsForks"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsStars"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsForks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsStarsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/stars"
+                android:textSize="@dimen/text_mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsStars"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsStars" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsWatchersText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/issues"
+                android:textSize="@dimen/text_mini"
+                app:layout_constraintEnd_toEndOf="@+id/textViewRepoDetailsWatchers"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsWatchers"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsWatchers" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsForksText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/forks"
+                android:textSize="@dimen/text_mini"
+                app:layout_constraintEnd_toEndOf="@+id/textViewRepoDetailsForks"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsForks"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsForks" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsCreatedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/created"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsUpdatedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/updated"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsCreatedText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsCreatedText" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsPushedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/pushed"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewRepoDetailsUpdatedText"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRepoDetailsUpdatedText" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsCreated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsCreatedText"
+                app:layout_constraintStart_toEndOf="@+id/textViewRepoDetailsCreatedText"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsCreatedText"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsUpdated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsUpdatedText"
+                app:layout_constraintStart_toEndOf="@+id/textViewRepoDetailsUpdatedText"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsUpdatedText"
+                tools:text="TextView" />
+
+            <TextView
+                android:id="@+id/textViewRepoDetailsPushed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="@dimen/text_small"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewRepoDetailsPushedText"
+                app:layout_constraintStart_toEndOf="@+id/textViewRepoDetailsPushedText"
+                app:layout_constraintTop_toTopOf="@+id/textViewRepoDetailsPushedText"
+                tools:text="TextView" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
