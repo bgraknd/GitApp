@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -26,7 +25,14 @@ import kotlinx.android.synthetic.main.fragment_search_page.*
 
 class SearchPageFragment : BaseFragment() {
 
-    private val searchRepository by lazy {
+    private val searchPageViewModel by lazy {
+        ViewModelProviders.of(
+            this,
+            ViewModelFactory(mainRepository)
+        ).get(SearchPageViewModel::class.java)
+    }
+
+    private val mainRepository by lazy {
         MainRepository(
             RetrofitClient.getGithubApiService()
         )
@@ -37,11 +43,6 @@ class SearchPageFragment : BaseFragment() {
             ::onItemClick,
             ::onItemClickAvatar
         )
-    }
-
-    private val searchPageViewModel by lazy {
-        ViewModelProviders.of(this, ViewModelFactory(searchRepository))
-            .get(SearchPageViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -55,7 +56,8 @@ class SearchPageFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        InitSearch()
+        initUi()
+        initSearch()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -70,15 +72,12 @@ class SearchPageFragment : BaseFragment() {
         }
     }
 
-    private fun initObserver() {
-        searchPageViewModel.getSearchPageResult.observe(viewLifecycleOwner, Observer {
-            if (it.items.isNotEmpty()) {
-                searchPageAdapter.setItems(it.items)
-            } else {
-                Toast.makeText(context!!, "Empty List!", Toast.LENGTH_SHORT).show()
-            }
-
-        })
+    private fun initObserver(searchedText: String) {
+        searchPageViewModel.initializedPagedListBuilder(searchedText)
+            .observe(viewLifecycleOwner, Observer {
+                imageViewGithub.visibility = View.GONE
+                searchPageAdapter.submitList(it)
+            })
     }
 
     private fun onItemClick(search: Item) {
@@ -91,11 +90,11 @@ class SearchPageFragment : BaseFragment() {
         findNavController().navigate(actionSearchPageFragmentToUserDetailsFragment(search.owner.login))
     }
 
-    private fun InitSearch() {
+    private fun initSearch() {
         editTextSearch.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    performSearch()
+                    performSearch(v!!.text.toString())
                     return true
                 }
                 return false
@@ -103,17 +102,9 @@ class SearchPageFragment : BaseFragment() {
         })
     }
 
-    private fun performSearch() {
+    private fun performSearch(searchedText: String) {
 
         initUi()
-        initObserver()
-
-        getSearchPage()
-    }
-
-    private fun getSearchPage() {
-        val q = editTextSearch.text.toString()
-        searchPageViewModel.getSearchPage(q)
-
+        initObserver(searchedText)
     }
 }

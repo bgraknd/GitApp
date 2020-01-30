@@ -1,30 +1,28 @@
 package com.bugrakandemir.gitappremake.ui.searchpage
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.bugrakandemir.gitappremake.base.BaseViewModel
-import com.bugrakandemir.gitappremake.model.SearchMain
-import com.bugrakandemir.gitappremake.network.MainRepository
+import com.bugrakandemir.gitappremake.model.Item
+import com.bugrakandemir.gitappremake.network.PostsDataSource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
-class SearchPageViewModel(private val mainRepository: MainRepository) : BaseViewModel() {
+class SearchPageViewModel : BaseViewModel() {
 
-    private var getSearchPageJob: Job? = null
-    val getSearchPageResult = MutableLiveData<SearchMain>()
+    private val config = PagedList.Config.Builder()
+        .setPageSize(10)
+        .setEnablePlaceholders(false)
+        .build()
 
-    fun getSearchPage(q: String) {
-        if (getSearchPageJob?.isActive == true) {
-            return
+    fun initializedPagedListBuilder(text: String): LiveData<PagedList<Item>> {
+
+        val dataSourceFactory = object : DataSource.Factory<Int, Item>() {
+            override fun create(): DataSource<Int, Item> {
+                return PostsDataSource(Dispatchers.IO, text)
+            }
         }
-        getSearchPageJob = launchGetSearchPage(q)
-    }
-
-    private fun launchGetSearchPage(q: String): Job? {
-        return viewModelScope.launch(Dispatchers.IO) {
-            val result = mainRepository.getSearchPage(q)
-            getSearchPageResult.postValue(result)
-        }
+        return LivePagedListBuilder<Int, Item>(dataSourceFactory, config).build()
     }
 }

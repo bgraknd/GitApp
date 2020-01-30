@@ -12,15 +12,16 @@ class ViewModelFactory(private val repository: BaseRepository) :
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
-            modelClass.isAssignableFrom(SearchPageViewModel::class.java) -> SearchPageViewModel(
-                repository as MainRepository
-            ) as T
-            modelClass.isAssignableFrom(RepoDetailsViewModel::class.java) -> RepoDetailsViewModel(
-                repository as MainRepository
-            ) as T
-            modelClass.isAssignableFrom(UserDetailsViewModel::class.java) -> UserDetailsViewModel(
-                repository as MainRepository
-            ) as T
+
+            modelClass.isAssignableFrom(SearchPageViewModel::class.java) ->
+                SearchPageViewModel() as T
+
+            modelClass.isAssignableFrom(RepoDetailsViewModel::class.java) ->
+                RepoDetailsViewModel(repository as MainRepository) as T
+
+            modelClass.isAssignableFrom(UserDetailsViewModel::class.java) ->
+                UserDetailsViewModel(repository as MainRepository) as T
+
             else -> throw IllegalArgumentException("ViewModel Not Found")
         }
     }
