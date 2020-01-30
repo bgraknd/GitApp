@@ -9,8 +9,8 @@ import kotlinx.android.parcel.RawValue
 data class UserInfo(
     val avatar_url: String,
     val bio: String?,
-    val blog: String,
-    val company: String,
+    val blog: String?,
+    val company: String?,
     val created_at: String,
     val email: String?,
     val events_url: String,

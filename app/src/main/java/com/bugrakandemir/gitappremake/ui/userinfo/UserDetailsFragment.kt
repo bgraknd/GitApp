@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,9 +16,6 @@ import com.bugrakandemir.gitappremake.network.MainRepository
 import com.bugrakandemir.gitappremake.network.RetrofitClient
 import kotlinx.android.synthetic.main.fragment_user_details.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class UserDetailsFragment : BaseFragment() {
     private val responseList = ArrayList<BaseInfo>()
     private val mainRepository by lazy {
@@ -51,17 +47,12 @@ class UserDetailsFragment : BaseFragment() {
         initUi()
         getUserRepos()
         initObserver()
-
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        (activity as? MainActivity)?.setActionBarTitle(titleResId = R.string.app_name)
     }
 
     private fun getUserRepos() {
         arguments?.run {
             val login = UserDetailsFragmentArgs.fromBundle(this).login
+            (activity as? MainActivity)?.setActionBarTitle(login)
             userDetailsViewModel.getUserInfo(login)
             userDetailsViewModel.getUserRepos(login)
         }
@@ -84,7 +75,6 @@ class UserDetailsFragment : BaseFragment() {
             responseList.addAll(it)
             setAdapterList()
         })
-
     }
 
     private fun setAdapterList() {
